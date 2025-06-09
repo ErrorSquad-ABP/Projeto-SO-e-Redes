@@ -1,4 +1,4 @@
-# Projeto de Gerenciamento Acadêmico com Grade de Horários e Mapa Interativo
+# Projeto de SO e Redes: Hospedagem local
 
 ## 📌 Resumo
 
