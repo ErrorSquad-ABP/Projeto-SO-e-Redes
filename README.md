@@ -92,13 +92,15 @@ Para hospedar localmente o sistema ABP no laboratório 103, siga os passos:
 1. **Clonar repositório:**
 
    ```bash
+   git clone [https://github.com/ErrorSquad-ABP/ErrorSquad-Front](https://github.com/ErrorSquad-ABP/ErrorSquad-Front)
+   cd ErrorSquad-Front
    ```
 
-git clone [https://github.com/ErrorSquad-ABP/ErrorSquad-Front](https://github.com/ErrorSquad-ABP/ErrorSquad-Front)
-cd ErrorSquad-Front
 
-````
+
+
 2. **Configurar variáveis de ambiente:**
+````
 Crie um arquivo `.env` com:
 ```env
 DB_HOST=localhost
@@ -111,24 +113,20 @@ PORT=3000
 3. **Instalar dependências Node.js:**
 
    ```bash
+   npm install
    ```
 
-npm install
-
-````
 4. **Executar migrações e seeders (se aplicável):**
-```bash
+```
 npm run db:migrate
 npm run db:seed
 ````
 
 5. **Iniciar servidor:**
 
-   ```bash
    ```
-
-6. **Acessar aplicação:**
-Navegue até `http://localhost:3000` em qualquer máquina do grupo.
+   npm run dev
+   ```
 
 **Observações de Rede:**
 - Certifique-se de que todas as máquinas estejam na mesma sub-rede do laboratório (ex: 192.168.1.0/24).
