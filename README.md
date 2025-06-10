@@ -1,22 +1,93 @@
-# Projeto de SO e Redes: Hospedagem local
+# Projeto de Gerenciamento Acadêmico com Grade de Horários e Mapa Interativo
 
-## 📌 Resumo
+## 📌 Resumo do Projeto
 
-Este projeto foi desenvolvido como parte da disciplina de **Sistemas Operacionais e Redes**, com o objetivo de criar um sistema de **gerenciamento acadêmico**. Ele permite visualizar a grade de horários e interagir com um **mapa de salas**, exibindo informações como professor, disciplina e horários. O sistema foi planejado para rodar em **servidores locais** hospedados em máquinas dedicadas, simulando um ambiente real de rede e servidor.
+Este repositório contém o sistema de **gerenciamento acadêmico**, desenvolvido como parte da disciplina de Sistemas Operacionais e Redes. O objetivo principal é **pegar nosso projeto da ABP** (Aprendizagem Baseada em Projetos) e **hospedá-lo localmente** nas máquinas do laboratório 103, simulando um ambiente real de rede e servidor.
 
-Entre os principais recursos estão:
+Principais funcionalidades:
 
-- Mapa interativo das salas de aula
-- Exibição dinâmica da grade horária
-- Banco de dados integrado
-- Hospedagem local com acesso via rede
-- Interface intuitiva e responsiva
+* **Mapa interativo** das salas de aula, mostrando professor, disciplina e horários.
+* **Grade de horários** dinâmica, filtrável por turma e professor.
+* **Banco de dados** PostgreSQL integrado.
+* **Hospedagem local** em servidor Node.js, com acesso via rede interna.
+* **Interface responsiva** para diferentes tamanhos de tela.
+
+## 🛠 Processo
+
+1. **Clonar o repositório** na máquina do laboratório 103.
+2. **Instalar dependências** e ferramentas necessárias (PostgreSQL, Node.js, VS Code).
+3. **Configurar o banco de dados** local e executar o script de criação de esquema e dados iniciais.
+4. **Instalar dependências Node.js** do projeto.
+5. **Iniciar o servidor** e acessar via navegador em `http://localhost:3000`.
+6. **Validar o funcionamento** do mapa interativo e da grade de horários.
+
+## 💻 Instalação no Linux Mint (Laboratório 103)
+
+### 1. PostgreSQL
+
+```bash
+# Atualizar lista de pacotes
+sudo apt update
+
+# Instalar PostgreSQL e cliente
+sudo apt install -y postgresql postgresql-client
+
+# Iniciar e habilitar o serviço
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+
+# Acessar o usuário postgres para criar banco/usuário
+sudo -i -u postgres
+psql
+-- Dentro do psql:
+CREATE DATABASE academia;
+CREATE USER lab_user WITH ENCRYPTED PASSWORD 'senha123';
+GRANT ALL PRIVILEGES ON DATABASE academia TO lab_user;
+\q
+exit
+```
+
+### 2. Node.js (versão LTS)
+
+```bash
+# Instalar dependências para adicionar repositório
+sudo apt install -y curl
+
+# Baixar e executar o script de instalação do NodeSource para LTS
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+
+# Instalar Node.js
+sudo apt install -y nodejs
+
+# Verificar versões
+node -v
+npm -v
+```
+
+### 3. Visual Studio Code
+
+```bash
+# Importar a chave do repositório Microsoft
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+
+# Adicionar o repositório do VS Code
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+# Atualizar e instalar
+sudo apt update
+sudo apt install -y code
+
+# Remover arquivo temporário
+rm microsoft.gpg
+```
 
 ## 🎥 Demonstração em Vídeo
 
-Confira a apresentação completa do funcionamento do sistema no vídeo abaixo:
+Confira o funcionamento completo do sistema no vídeo a seguir (link será adicionado em breve):
 
-👉 [Assista no YouTube](https://www.youtube.com/SEU-LINK-AQUI) *(link será adicionado em breve)*
+👉 [Assista no YouTube](https://www.youtube.com/SEU-LINK-AQUI)
 
 ---
 
+*Laboratório 103 – Sistemas Operacionais e Redes*
