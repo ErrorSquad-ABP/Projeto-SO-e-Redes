@@ -12,7 +12,8 @@ Principais funcionalidades:
 * **Hospedagem local** em servidor Node.js, com acesso via rede interna.
 * **Interface responsiva** para diferentes tamanhos de tela.
 
-## 🛠 Processo
+<details>
+<summary>🛠 Processo</summary>
 
 1. **Clonar o repositório** na máquina do laboratório 103.
 2. **Instalar dependências** e ferramentas necessárias (PostgreSQL, Node.js, VS Code).
@@ -21,7 +22,10 @@ Principais funcionalidades:
 5. **Iniciar o servidor** e acessar via navegador em `http://localhost:3000`.
 6. **Validar o funcionamento** do mapa interativo e da grade de horários.
 
-## 💻 Instalação no Linux Mint (Laboratório 103)
+</details>
+
+<details>
+<summary>💻 Instalação no Linux Mint (Laboratório 103)</summary>
 
 ### 1. PostgreSQL
 
@@ -81,6 +85,8 @@ sudo apt install -y code
 # Remover arquivo temporário
 rm microsoft.gpg
 ```
+
+</details>
 
 ## 🎥 Demonstração em Vídeo
 
