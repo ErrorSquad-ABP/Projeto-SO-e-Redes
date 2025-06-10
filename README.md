@@ -87,52 +87,69 @@ rm microsoft.gpg
 
 ## 🚧 Hospedagem do Projeto
 
-Para hospedar localmente o sistema ABP no laboratório 103, siga os passos:
+### 🖥️ Hospedagem Front-end
 
-1. **Clonar repositório:**
+1. **Clonar repositório Front-end:**
 
    ```bash
-   git clone [https://github.com/ErrorSquad-ABP/ErrorSquad-Front](https://github.com/ErrorSquad-ABP/ErrorSquad-Front)
+   git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Front.git
    cd ErrorSquad-Front
    ```
+2. **Configurar variáveis de ambiente (caso aplicável):**
 
-
-
-
-2. **Configurar variáveis de ambiente:**
-````
-Crie um arquivo `.env` com:
-```env
-DB_HOST=localhost
-DB_USER=lab_user
-DB_PASS=senha123
-DB_NAME=abp_local
-PORT=3000
-````
-
-3. **Instalar dependências Node.js:**
+   ```bash
+   cp .env.example .env
+   # Ajuste variáveis específicas do front-end se houver
+   ```
+3. **Instalar dependências e iniciar:**
 
    ```bash
    npm install
-   ```
-
-4. **Executar migrações e seeders (se aplicável):**
-```
-npm run db:migrate
-npm run db:seed
-````
-
-5. **Iniciar servidor:**
-
-   ```
    npm run dev
    ```
 
-**Observações de Rede:**
-- Certifique-se de que todas as máquinas estejam na mesma sub-rede do laboratório (ex: 192.168.1.0/24).
-- Configure regras de firewall locais para liberar porta 3000.
-- Utilize SSH ou VNC para acesso remoto entre as máquinas, se necessário.
+### 🛠️ Hospedagem Back-end
 
+1. **Clonar repositório Back-end:**
+
+   ```bash
+   git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Back.git
+   cd ErrorSquad-Back
+   ```
+2. **Configurar variáveis de ambiente:**
+
+   ```bash
+   cp .env.example .env
+   # Atualize credenciais de banco e porta do servidor
+   ```
+3. **Instalar dependências e iniciar:**
+
+   ```bash
+   npm install
+   npm run dev
+   ```
+
+### 🗄️ Hospedagem Banco de Dados
+
+1. **Acessar serviço PostgreSQL:**
+
+   ```bash
+   sudo -i -u postgres psql
+   ```
+2. **Criar banco e usuário (se ainda não criado):**
+
+   ```sql
+   CREATE DATABASE abp_local;
+   CREATE USER lab_user WITH PASSWORD 'senha123';
+   GRANT ALL PRIVILEGES ON DATABASE abp_local TO lab_user;
+   ```
+3. **Executar migrações e seeders:**
+
+   ````bash
+   cd /caminho/para/ErrorSquad-Back
+   npm run db:migrate
+   npm run db:seed
+   ```
 ---
 
 ## 👥 Nossa Equipe
