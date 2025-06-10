@@ -17,15 +17,14 @@ Projeto com foco na **hospedagem local** da ABP do primeiro semestre em máquina
 
 | Categoria              | Detalhes                                                              |
 | ---------------------- | --------------------------------------------------------------------- |
-| 📍 Instituição         | FATEC Jacareí                                                         |
+| 📍 Instituição         | FATEC Jacareí                                                          |
 | 📚 Curso               | DSM - 1º Semestre 2025                                                |
 | 🔄 Metodologia         | Aprendizagem Baseada em Projetos (ABP)                                |
 | 👤 Focal Point         | Prof. Antonio Egydio Graça                                            |
 | 📧 Contato             | [antonio.graca@fatec.sp.gov.br](mailto:antonio.graca@fatec.sp.gov.br) |
 | 📅 Período             | 02/06/2025 – 23/06/2025                                               |
-| 💻 Requisitos de Grupo | Máximo 4 computadores por grupo                                       |
 | ⚙️ Ferramentas         | PostgreSQL, Node.js, Visual Studio Code                               |
-| 🖥️ Ambiente           | Linux Mint (laboratório 103)                                          |
+| 🖥️ Ambiente           | laboratório 103                                                        |
 | 📊 Status              | Em desenvolvimento                                                    |
 
 </details>
@@ -95,8 +94,8 @@ Para hospedar localmente o sistema ABP no laboratório 103, siga os passos:
    ```bash
    ```
 
-git clone [https://github.com/SEU-ORGANIZACAO/abp-local.git](https://github.com/SEU-ORGANIZACAO/abp-local.git)
-cd abp-local
+git clone [https://github.com/ErrorSquad-ABP/ErrorSquad-Front](https://github.com/ErrorSquad-ABP/ErrorSquad-Front)
+cd ErrorSquad-Front
 
 ````
 2. **Configurar variáveis de ambiente:**
@@ -128,9 +127,6 @@ npm run db:seed
    ```bash
    ```
 
-npm start
-
-```
 6. **Acessar aplicação:**
 Navegue até `http://localhost:3000` em qualquer máquina do grupo.
 
@@ -187,8 +183,8 @@ Navegue até `http://localhost:3000` em qualquer máquina do grupo.
          <td align="center">
              <b>Prof. Antonio Egydio Graça</b><br>
              <i>Professor Instrutor</i><br>
-             <a href="https://github.com/marcelosudo"><img src="https://img.shields.io/badge/GitHub-333?style=flat-square&logo=github"/></a>
-             <a href="https://www.linkedin.com/in/marcelo-sudo/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"/></a>
+             <a href="https://github.com/antonioegydio"><img src="https://img.shields.io/badge/GitHub-333?style=flat-square&logo=github"/></a>
+             <a href="https://www.linkedin.com/in/antonio-egydio/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"/></a>
          </td>
      </tr>
  </table>
