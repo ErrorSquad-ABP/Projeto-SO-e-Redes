@@ -115,13 +115,7 @@ rm microsoft.gpg
    git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Server
    cd ErrorSquad-Server
    ```
-2. **Configurar variáveis de ambiente:**
-
-   ```bash
-   cp .env.example .env
-   # Atualize credenciais de banco e porta do servidor
-   ```
-3. **Instalar dependências e iniciar:**
+2. **Instalar dependências e iniciar:**
 
    ```bash
    npm install
