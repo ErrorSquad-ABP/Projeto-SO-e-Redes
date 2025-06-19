@@ -33,7 +33,7 @@ Projeto com foco na **hospedagem local** da ABP do primeiro semestre em máquina
 
 ## 🎥 Demonstração em Vídeo
 
-Link para o vídeo de apresentação (será adicionado após upload):
+Link para o vídeo de apresentação:
 
 `https://www.youtube.com/SEU-LINK-AQUI`
 
@@ -52,7 +52,6 @@ sudo apt install -y postgresql postgresql-client
 sudo systemctl enable --now postgresql
 sudo -i -u postgres psql -c "CREATE DATABASE abp_local;"
 sudo -i -u postgres psql -c "CREATE USER lab_user WITH PASSWORD 'senha123';"
-sudo -i -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE abp_local TO lab_user;"
 ```
 
 </details>
@@ -64,7 +63,7 @@ sudo -i -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE abp_local TO lab_u
 sudo apt install -y curl
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install -y nodejs
-node -v && npm -v
+node -v
 ```
 
 </details>
@@ -92,7 +91,7 @@ rm microsoft.gpg
 1. **Clonar repositório Front-end:**
 
    ```bash
-   git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Front.git
+   git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Front
    cd ErrorSquad-Front
    ```
 2. **Configurar variáveis de ambiente (caso aplicável):**
@@ -113,8 +112,8 @@ rm microsoft.gpg
 1. **Clonar repositório Back-end:**
 
    ```bash
-   git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Back.git
-   cd ErrorSquad-Back
+   git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Server
+   cd ErrorSquad-Server
    ```
 2. **Configurar variáveis de ambiente:**
 
@@ -136,7 +135,7 @@ rm microsoft.gpg
    ```bash
    sudo -i -u postgres psql
    ```
-2. **Criar banco e usuário (se ainda não criado):**
+2. **Criar banco e usuário:**
 
    ```sql
    CREATE DATABASE abp_local;
