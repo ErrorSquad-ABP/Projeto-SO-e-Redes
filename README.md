@@ -48,10 +48,10 @@ Instruções de instalação no Linux Mint para as ferramentas necessárias:
 
 ```bash
 sudo apt update
-sudo apt install -y postgresql postgresql-client
-sudo systemctl enable --now postgresql
-sudo -i -u postgres psql -c "CREATE DATABASE abp_local;"
-sudo -i -u postgres psql -c "CREATE USER lab_user WITH PASSWORD 'senha123';"
+sudo apt install postgresql postgresql-contrib
+sudo systemctl status postgresql
+sudo -i -u postgres
+psql
 ```
 
 </details>
@@ -133,9 +133,9 @@ rm microsoft.gpg
 3. **Executar migrações e seeders:**
 
    ````bash
-   cd /caminho/para/ErrorSquad-Back
+   cd /caminho/para/ErrorSquad-Server
    npm run db:migrate
-   npm run db:seed
+  
    ```
 ---
 
