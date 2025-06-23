@@ -137,6 +137,97 @@ rm microsoft.gpg
    npm run db:migrate
   
    ```
+
+## 🔥 Abrindo Portas no Firewall (Linux)
+
+### Ubuntu/Debian (UFW)
+
+Para permitir a porta `8000`:
+
+```bash
+sudo ufw allow 8000
+```
+
+Ou especificando o protocolo:
+
+```bash
+sudo ufw allow 8000/tcp
+```
+
+---
+
+### CentOS / RHEL / Fedora (Firewalld)
+
+Adicionando a porta `8000` permanentemente e recarregando o firewall:
+
+```bash
+sudo firewall-cmd --add-port=8000/tcp --permanent
+sudo firewall-cmd --reload
+```
+
+---
+
+### Arch Linux / Manjaro
+
+**Com UFW:**
+
+```bash
+sudo ufw allow 8000
+```
+
+**Com iptables direto:**
+
+```bash
+sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
+```
+
+---
+
+### 🔍 Verificação de portas e status
+
+**Ver status do UFW:**
+
+```bash
+sudo ufw status
+```
+
+**Ver portas em uso:**
+
+```bash
+sudo netstat -tlnp
+# ou
+sudo ss -tlnp
+```
+
+---
+
+### 🚫 Desativando o firewall temporariamente (apenas para testes)
+
+**Ubuntu / Debian:**
+
+```bash
+sudo ufw disable
+```
+
+**CentOS / RHEL / Fedora:**
+
+```bash
+sudo systemctl stop firewalld
+```
+
+---
+
+### ✅ Resumo
+
+Para a maioria dos casos em sistemas Ubuntu/Debian, use:
+
+```bash
+sudo ufw allow PORTA
+```
+
+
+
+   
 ---
 
 ## 👥 Nossa Equipe
