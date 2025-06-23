@@ -35,7 +35,7 @@ Projeto com foco na **hospedagem local** da ABP do primeiro semestre em máquina
 
 Link para o vídeo de apresentação:
 
-`https://www.youtube.com/watch?v=fNmHGEbLYmg`
+<a href="https://www.youtube.com/watch?v=fNmHGEbLYmg" target="_blank">👉 Clique AQUI para assistir à apresentação</a>
 
 ---
 
