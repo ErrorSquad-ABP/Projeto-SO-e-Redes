@@ -25,7 +25,7 @@ Projeto com foco na **hospedagem local** da ABP do primeiro semestre em máquina
 | 📅 Período             | 02/06/2025 – 23/06/2025                                               |
 | ⚙️ Ferramentas         | PostgreSQL, Node.js, Visual Studio Code                               |
 | 🖥️ Ambiente           | Laboratório 103                                                        |
-| 📊 Status              | Em desenvolvimento                                                    |
+| 📊 Status              | Concluido                                                    |
 
 </details>
 
@@ -47,7 +47,7 @@ sudo apt update
 sudo apt install postgresql postgresql-contrib
 sudo systemctl status postgresql
 sudo -i -u postgres
-psql
+psql --version
 ```
 </details>
 
@@ -55,9 +55,7 @@ psql
 <summary><b>Node.js (LTS)</b></summary>
 
 ```bash
-sudo apt install -y curl
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-sudo apt install -y nodejs
+sudo apt install nodejs
 node -v
 ```
 </details>
@@ -66,12 +64,11 @@ node -v
 <summary><b>Visual Studio Code</b></summary>
 
 ```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-sudo apt update
-sudo apt install -y code
-rm microsoft.gpg
+https://code.visualstudio.com/
+
+https://code.visualstudio.com/Download
+
+https://code.visualstudio.com/docs/?dv=linux64_deb
 ```
 </details>
 
@@ -107,33 +104,10 @@ npm run dev
 git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Server
 cd ErrorSquad-Server
 ```
-
-2. **Criar arquivo `.env`:**
-
-```env
-DB_HOST=localhost
-DB_USER=lab_user
-DB_PASS=senha123
-DB_NAME=abp_local
-PORT=8000
-```
-
-3. **Instalar dependências:**
+2. **Instalar dependências e iniciar:**
 
 ```bash
 npm install
-```
-
-4. **Executar migrações e seeders (se aplicável):**
-
-```bash
-npm run db:migrate
-npm run db:seed
-```
-
-5. **Iniciar servidor:**
-
-```bash
 npm run dev
 ```
 
