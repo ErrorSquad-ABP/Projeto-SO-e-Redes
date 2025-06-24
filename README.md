@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![Status](https://img.shields.io/badge/⚙️_Status-Desenvolvimento-yellow?style=for-the-badge)](#-sobre-o-projeto)
+[![Status](https://img.shields.io/badge/⚙️_Status-Concluido-green?style=for-the-badge)](#-sobre-o-projeto)
 
 </div>
 
@@ -24,7 +24,7 @@ Projeto com foco na **hospedagem local** da ABP do primeiro semestre em máquina
 | 📧 Contato             | [antonio.graca@fatec.sp.gov.br](mailto:antonio.graca@fatec.sp.gov.br) |
 | 📅 Período             | 02/06/2025 – 23/06/2025                                               |
 | ⚙️ Ferramentas         | PostgreSQL, Node.js, Visual Studio Code                               |
-| 🖥️ Ambiente           | laboratório 103                                                        |
+| 🖥️ Ambiente           | Laboratório 103                                                        |
 | 📊 Status              | Em desenvolvimento                                                    |
 
 </details>
@@ -33,15 +33,11 @@ Projeto com foco na **hospedagem local** da ABP do primeiro semestre em máquina
 
 ## 🎥 Demonstração em Vídeo
 
-Link para o vídeo de apresentação:
-
 <a href="https://www.youtube.com/watch?v=fNmHGEbLYmg" target="_blank">👉 Clique AQUI para assistir à apresentação</a>
 
 ---
 
 ## 🛠️ Instalação dos Programas
-
-Instruções de instalação no Linux Mint para as ferramentas necessárias:
 
 <details>
 <summary><b>PostgreSQL</b></summary>
@@ -53,7 +49,6 @@ sudo systemctl status postgresql
 sudo -i -u postgres
 psql
 ```
-
 </details>
 
 <details>
@@ -65,7 +60,6 @@ curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install -y nodejs
 node -v
 ```
-
 </details>
 
 <details>
@@ -79,119 +73,111 @@ sudo apt update
 sudo apt install -y code
 rm microsoft.gpg
 ```
-
 </details>
 
 ---
 
 ## 🚧 Hospedagem do Projeto
 
-### 🖥️ Hospedagem Front-end
+<details>
+<summary><b>🖥️ Hospedagem Front-end</b></summary>
 
-1. **Clonar repositório Front-end:**
+1. **Clonar o repositório Front-end:**
 
-   ```bash
-   git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Front
-   cd ErrorSquad-Front
-   ```
+```bash
+git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Front
+cd ErrorSquad-Front
+```
+
 2. **Instalar dependências e iniciar:**
 
-   ```bash
-   npm install
-   npm run dev
-   ```
+```bash
+npm install
+npm run dev
+```
 
-### 🛠️ Hospedagem Back-end
+</details>
 
-1. **Clonar repositório Back-end:**
+<details>
+<summary><b>🛠️ Hospedagem Back-end</b></summary>
 
-   ```bash
-   git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Server
-   cd ErrorSquad-Server
-   ```
-2. **Instalar dependências e iniciar:**
+1. **Clonar o repositório Back-end:**
 
-   ```bash
-   npm install
-   npm run dev
-   ```
+```bash
+git clone https://github.com/ErrorSquad-ABP/ErrorSquad-Server
+cd ErrorSquad-Server
+```
 
-### 🗄️ Hospedagem Banco de Dados
+2. **Criar arquivo `.env`:**
+
+```env
+DB_HOST=localhost
+DB_USER=lab_user
+DB_PASS=senha123
+DB_NAME=abp_local
+PORT=8000
+```
+
+3. **Instalar dependências:**
+
+```bash
+npm install
+```
+
+4. **Executar migrações e seeders (se aplicável):**
+
+```bash
+npm run db:migrate
+npm run db:seed
+```
+
+5. **Iniciar servidor:**
+
+```bash
+npm run dev
+```
+
+</details>
+
+<details>
+<summary><b>🗄️ Hospedagem Banco de Dados</b></summary>
 
 1. **Acessar serviço PostgreSQL:**
 
-   ```bash
-   sudo -i -u postgres psql
-   ```
-2. **Criar banco e usuário:**
-
-   ```sql
-   CREATE DATABASE abp_local;
-   CREATE USER lab_user WITH PASSWORD 'senha123';
-   GRANT ALL PRIVILEGES ON DATABASE abp_local TO lab_user;
-   ```
-3. **Executar migrações e seeders:**
-
-   ````bash
-   cd /caminho/para/ErrorSquad-Server
-   npm run db:migrate
-  
-   ```
-
-## 🔥 Abrindo Portas no Firewall (Linux)
-
-### Ubuntu/Debian (UFW)
-
-Para permitir a porta `8000`:
-
 ```bash
-sudo ufw allow 8000
+sudo systemctl start postgresql
 ```
 
-Ou especificando o protocolo:
+2. **Criar banco de dados e usuário:**
 
 ```bash
-sudo ufw allow 8000/tcp
+sudo -i -u postgres
+psql
+CREATE DATABASE abp_local;
+CREATE USER lab_user WITH PASSWORD 'senha123';
+GRANT ALL PRIVILEGES ON DATABASE abp_local TO lab_user;
 ```
+
+3. **Verificar se a porta 5432 está liberada:**
+
+```bash
+sudo netstat -tlnp | grep 5432
+```
+
+</details>
 
 ---
 
-### CentOS / RHEL / Fedora (Firewalld)
+<details>
+<summary><b>🔍 Verificação de portas e status</b></summary>
 
-Adicionando a porta `8000` permanentemente e recarregando o firewall:
-
-```bash
-sudo firewall-cmd --add-port=8000/tcp --permanent
-sudo firewall-cmd --reload
-```
-
----
-
-### Arch Linux / Manjaro
-
-**Com UFW:**
-
-```bash
-sudo ufw allow 8000
-```
-
-**Com iptables direto:**
-
-```bash
-sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
-```
-
----
-
-### 🔍 Verificação de portas e status
-
-**Ver status do UFW:**
+- **Ver status do UFW:**
 
 ```bash
 sudo ufw status
 ```
 
-**Ver portas em uso:**
+- **Ver portas em uso:**
 
 ```bash
 sudo netstat -tlnp
@@ -199,9 +185,10 @@ sudo netstat -tlnp
 sudo ss -tlnp
 ```
 
----
+</details>
 
-### 🚫 Desativando o firewall temporariamente (apenas para testes)
+<details>
+<summary><b>🚫 Desativando o firewall temporariamente (apenas para testes)</b></summary>
 
 **Ubuntu / Debian:**
 
@@ -215,19 +202,19 @@ sudo ufw disable
 sudo systemctl stop firewalld
 ```
 
----
+</details>
 
-### ✅ Resumo
+<details>
+<summary><b>✅ Resumo</b></summary>
 
-Para a maioria dos casos em sistemas Ubuntu/Debian, use:
+| Serviço              | Porta | Comando UFW             |
+| -------------------- | ----- | ---------------------- |
+| Back-end API         | 8000  | `sudo ufw allow 8000`  |
+| Front-end (Vite)     | 5173  | `sudo ufw allow 5173`  |
+| Banco de Dados (Postgres) | 5432 | `sudo ufw allow 5432` |
 
-```bash
-sudo ufw allow PORTA
-```
+</details>
 
-
-
-   
 ---
 
 ## 👥 Nossa Equipe
@@ -325,5 +312,3 @@ sudo ufw allow PORTA
 <div align="center">
  <img src="https://capsule-render.vercel.app/api?type=waving&color=4a90e2&height=100&section=footer" width="100%"/>
 </div>
-
-```
